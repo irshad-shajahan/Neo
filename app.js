@@ -10,6 +10,7 @@ const connectDB = require("./config/db");
 var indexRouter = require("./routes/index");
 var adminRouter = require("./routes/admin");
 
+
 var app = express();
 
 // view engine setup
