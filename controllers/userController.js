@@ -85,17 +85,22 @@ module.exports = {
       const limit = 15;
       const skip = (page - 1) * limit;
 
-      const categories = await categoryModel.find({}).lean();
-      const popularProducts = await productModel
-        .aggregate([{ $sample: { size: 4 } }])
-        .exec();
-      
-      const totalProducts = await productModel.countDocuments({ stock: { $gt: 0 } });
-      const products = await productModel
-        .find({ stock: { $gt: 0 } })
-        .skip(skip)
-        .limit(limit)
-        .lean();
+      // Run queries in parallel for better performance
+      const [categories, totalProducts, products, popularProducts] = await Promise.all([
+        categoryModel.find({}).lean(),
+        productModel.countDocuments({ stock: { $gt: 0 } }),
+        productModel
+          .find({ stock: { $gt: 0 } })
+          .skip(skip)
+          .limit(limit)
+          .select('name shortDesc price images stock _id')
+          .lean(),
+        productModel
+          .find({ stock: { $gt: 0 } })
+          .limit(4)
+          .select('name price images _id')
+          .lean()
+      ]);
       
       const totalPages = Math.ceil(totalProducts / limit);
       
@@ -174,19 +179,25 @@ module.exports = {
     try {
       const category = await categoryModel.findById(categoryId);
       const categories = await categoryModel.find().lean();
-      const popularProducts = await productModel
-        .aggregate([{ $sample: { size: 4 } }])
-        .exec();
       
-      const totalProducts = await productModel.countDocuments({ 
-        category: category.category,
-        stock: { $gt: 0 } 
-      });
-      const products = await productModel
-        .find({ category: category.category })
-        .skip(skip)
-        .limit(limit)
-        .lean();
+      // Run queries in parallel for better performance
+      const [totalProducts, products, popularProducts] = await Promise.all([
+        productModel.countDocuments({ 
+          category: category.category,
+          stock: { $gt: 0 } 
+        }),
+        productModel
+          .find({ category: category.category })
+          .skip(skip)
+          .limit(limit)
+          .select('name shortDesc price images stock _id')
+          .lean(),
+        productModel
+          .find({ stock: { $gt: 0 } })
+          .limit(4)
+          .select('name price images _id')
+          .lean()
+      ]);
       
       const totalPages = Math.ceil(totalProducts / limit);
       
@@ -211,18 +222,24 @@ module.exports = {
     try {
       const brand = await brandModel.findById(brandId);
       const categories = await categoryModel.find().lean();
-      const popularProducts = await productModel
-        .aggregate([{ $sample: { size: 4 } }])
-        .exec();
       
-      const totalProducts = await productModel.countDocuments({ 
-        brand: brand.brand 
-      });
-      const products = await productModel
-        .find({ brand: brand.brand })
-        .skip(skip)
-        .limit(limit)
-        .lean();
+      // Run queries in parallel for better performance
+      const [totalProducts, products, popularProducts] = await Promise.all([
+        productModel.countDocuments({ 
+          brand: brand.brand 
+        }),
+        productModel
+          .find({ brand: brand.brand })
+          .skip(skip)
+          .limit(limit)
+          .select('name shortDesc price images stock _id')
+          .lean(),
+        productModel
+          .find({ stock: { $gt: 0 } })
+          .limit(4)
+          .select('name price images _id')
+          .lean()
+      ]);
       
       const totalPages = Math.ceil(totalProducts / limit);
       
