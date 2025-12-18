@@ -186,6 +186,57 @@
                 {{/each}}
               </div><!-- /row -->
             </div>
+
+            <!-- ====== pagination-area-start================================ -->
+            {{#if totalPages}}
+              <div class="pagination-area mt-30 mb-20 over-hidden">
+                <div class="container-wrapper extra-padding-15">
+                  <div class="row pb-110">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                      <nav class="pagination-page" aria-label="Page navigation">
+                        <ul class="pagination align-items-center justify-content-center">
+                          <!-- Previous Button -->
+                          {{#if (equal currentPage 1)}}
+                            <li class="page-item disabled">
+                              <span class="page-link"><i class="fas fa-angle-left"></i></span>
+                            </li>
+                          {{else}}
+                            <li class="page-item">
+                              <a class="page-link" href="?page={{subtract currentPage 1}}"><i class="fas fa-angle-left"></i></a>
+                            </li>
+                          {{/if}}
+
+                          <!-- Page Numbers -->
+                          {{#each (range 1 (add totalPages 1))}}
+                            {{#if (equal this ../currentPage)}}
+                              <li class="page-item active">
+                                <span class="page-link">{{this}}</span>
+                              </li>
+                            {{else}}
+                              <li class="page-item">
+                                <a class="page-link" href="?page={{this}}">{{this}}</a>
+                              </li>
+                            {{/if}}
+                          {{/each}}
+
+                          <!-- Next Button -->
+                          {{#if (equal currentPage totalPages)}}
+                            <li class="page-item disabled">
+                              <span class="page-link"><i class="fas fa-angle-right"></i></span>
+                            </li>
+                          {{else}}
+                            <li class="page-item">
+                              <a class="page-link" href="?page={{add currentPage 1}}"><i class="fas fa-angle-right"></i></a>
+                            </li>
+                          {{/if}}
+                        </ul>
+                      </nav>
+                    </div><!-- /col -->
+                  </div><!-- /row -->
+                </div><!-- /container -->
+              </div>
+            {{/if}}
+            <!-- pagination-area-end -->
           </div><!-- /col -->
         </div><!-- /row -->
 

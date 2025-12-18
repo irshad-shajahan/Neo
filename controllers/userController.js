@@ -81,12 +81,32 @@ module.exports = {
   },
   getShop: async (req, res) => {
     try {
+      const page = parseInt(req.query.page) || 1;
+      const limit = 15;
+      const skip = (page - 1) * limit;
+
       const categories = await categoryModel.find({}).lean();
       const popularProducts = await productModel
         .aggregate([{ $sample: { size: 4 } }])
         .exec();
-      const products = await productModel.find({ stock: { $gt: 0 } }).lean();
-      res.render("user/shop", { products, popularProducts, categories });
+      
+      const totalProducts = await productModel.countDocuments({ stock: { $gt: 0 } });
+      const products = await productModel
+        .find({ stock: { $gt: 0 } })
+        .skip(skip)
+        .limit(limit)
+        .lean();
+      
+      const totalPages = Math.ceil(totalProducts / limit);
+      
+      res.render("user/shop", { 
+        products, 
+        popularProducts, 
+        categories,
+        currentPage: page,
+        totalPages: totalPages,
+        totalProducts: totalProducts
+      });
     } catch (err) {
       res.render("error", { message: err });
     }
@@ -147,30 +167,73 @@ module.exports = {
   },
   getCategoryProducts: async (req, res) => {
     const categoryId = req.params.id;
+    const page = parseInt(req.query.page) || 1;
+    const limit = 15;
+    const skip = (page - 1) * limit;
+
     try {
       const category = await categoryModel.findById(categoryId);
       const categories = await categoryModel.find().lean();
       const popularProducts = await productModel
         .aggregate([{ $sample: { size: 4 } }])
         .exec();
+      
+      const totalProducts = await productModel.countDocuments({ 
+        category: category.category,
+        stock: { $gt: 0 } 
+      });
       const products = await productModel
         .find({ category: category.category })
+        .skip(skip)
+        .limit(limit)
         .lean();
-      res.render("user/shop", { products, popularProducts, categories });
+      
+      const totalPages = Math.ceil(totalProducts / limit);
+      
+      res.render("user/shop", { 
+        products, 
+        popularProducts, 
+        categories,
+        currentPage: page,
+        totalPages: totalPages,
+        totalProducts: totalProducts
+      });
     } catch (err) {
       res.render("error", { message: err });
     }
   },
   getBrandProducts: async (req, res) => {
     const brandId = req.params.id;
+    const page = parseInt(req.query.page) || 1;
+    const limit = 15;
+    const skip = (page - 1) * limit;
+
     try {
       const brand = await brandModel.findById(brandId);
       const categories = await categoryModel.find().lean();
       const popularProducts = await productModel
         .aggregate([{ $sample: { size: 4 } }])
         .exec();
-      const products = await productModel.find({ brand: brand.brand }).lean();
-      res.render("user/shop", { products, popularProducts, categories });
+      
+      const totalProducts = await productModel.countDocuments({ 
+        brand: brand.brand 
+      });
+      const products = await productModel
+        .find({ brand: brand.brand })
+        .skip(skip)
+        .limit(limit)
+        .lean();
+      
+      const totalPages = Math.ceil(totalProducts / limit);
+      
+      res.render("user/shop", { 
+        products, 
+        popularProducts, 
+        categories,
+        currentPage: page,
+        totalPages: totalPages,
+        totalProducts: totalProducts
+      });
     } catch (err) {
       res.render("error", { message: err });
     }

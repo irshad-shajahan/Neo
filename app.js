@@ -31,6 +31,22 @@ app.engine(
       last: function (arr) {
         if (!Array.isArray(arr) || arr.length === 0) { return null; }
         return arr[arr.length - 1];
+      },
+      range: function (start, end) {
+        const result = [];
+        for (let i = start; i < end; i++) {
+          result.push(i);
+        }
+        return result;
+      },
+      add: function (a, b) {
+        return a + b;
+      },
+      subtract: function (a, b) {
+        return a - b;
+      },
+      equal: function (a, b) {
+        return a === b;
       }
     }
   })
