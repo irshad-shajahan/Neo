@@ -1,0 +1,7 @@
+template.zip
+template
+admin-template
+node_modules/
+.env
+sessions/
+logs/juspay-sdk.log

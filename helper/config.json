@@ -1,0 +1,7 @@
+{
+  "MERCHANT_ID": "35033",
+  "PRIVATE_KEY_PATH": "./privateKey.pem",
+  "PUBLIC_KEY_PATH": "./key_c40cf6c6e6d246ac8a1ab535448cd2b6.pem",
+  "KEY_UUID": "key_c40cf6c6e6d246ac8a1ab535448cd2b6",
+  "PAYMENT_PAGE_CLIENT_ID": "35033"
+}

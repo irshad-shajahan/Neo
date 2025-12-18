@@ -1,0 +1,66 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 02/02/2021 12:45
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-graph:before { content: "\f100"; }
+.flaticon-delivery-truck:before { content: "\f101"; }
+.flaticon-redo:before { content: "\f102"; }
+.flaticon-shield:before { content: "\f103"; }
+.flaticon-repair-tools:before { content: "\f104"; }
+.flaticon-tools:before { content: "\f105"; }
+.flaticon-rating:before { content: "\f106"; }
+.flaticon-stars:before { content: "\f107"; }
+.flaticon-3-stars-outlines:before { content: "\f108"; }
+.flaticon-guarantee:before { content: "\f109"; }
+.flaticon-stars-1:before { content: "\f10a"; }
+.flaticon-star:before { content: "\f10b"; }
+.flaticon-review:before { content: "\f10c"; }
+    
+    $font-Flaticon-graph: "\f100";
+    $font-Flaticon-delivery-truck: "\f101";
+    $font-Flaticon-redo: "\f102";
+    $font-Flaticon-shield: "\f103";
+    $font-Flaticon-repair-tools: "\f104";
+    $font-Flaticon-tools: "\f105";
+    $font-Flaticon-rating: "\f106";
+    $font-Flaticon-stars: "\f107";
+    $font-Flaticon-3-stars-outlines: "\f108";
+    $font-Flaticon-guarantee: "\f109";
+    $font-Flaticon-stars-1: "\f10a";
+    $font-Flaticon-star: "\f10b";
+    $font-Flaticon-review: "\f10c";

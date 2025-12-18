@@ -1,0 +1,79 @@
+<div class="page">
+    <div class="container-fluid">
+        <div class="flex">
+            <div class="w-[50%] h-full">
+                <h3 class="text-2xl">Offer Banners</h3>
+                   <div class="card">
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table id="brandTable" class="table table-striped m-b-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Brands</th>
+                                                <th>Image</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                                <tbody>
+                                           {{#each banners}}
+                                            <tr>
+                                                <td>{{this.bannerNamea}}</td>
+                                                <td>
+                                                  {{#each this.images}}
+                                                  <img class="max-w-20" style="margin: 0.5rem 0;" src="/uploads/{{this}}" alt="">
+                                                  {{/each}}
+                                                </td>
+                                                <td><button  onclick="sure('{{this._id}}')" class="bg-red-500 rounded-lg text-white font-semibold p-2 hover:bg-red-300">Delete</button></td>
+                                            </tr>
+                                             {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                
+            </div>
+            <div class="w-[50%] h-full pt-20 p-5">
+                <form action="/admin/offer-banner" method="post" enctype="multipart/form-data"
+                    class="border border-1 rounded-xl p-4 flex flex-col items-center gap-5 bg-gray-500/30">
+                    <h3 class="text-2xl font-bold">Add New Offer</h3>
+                    <input name="bannerName" type="text" class="w-[80%] h-10 border border-1 text-lg px-3 rounded-xl"  placeholder="offer name" required>
+                      <label for="product-image">Offer Banner</label>
+                         <input type="file" name="image" class="w-[80%]" multiple required/>
+                    <button type="submit" class="bg-green-500 text-white font-semibold px-2 py-2 rounded-xl">Add Offer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+ <script>
+      function sure(offerId) {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+             $.ajax({
+          url:'/admin/offer-delete/'+offerId,
+          method:'delete',
+          success:(response)=>{
+            location.reload()
+          }
+        })
+          
+          }
+        })
+       
+      }
+    </script>

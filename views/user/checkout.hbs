@@ -1,0 +1,260 @@
+<main style="margin-top: 8rem;">
+
+            <!-- ======slider-area-start=========================================== -->
+            <div class="slider-area over-hidden">
+                <div class="page-height d-flex align-items-center justify-content-center position-relative" data-background="images/slider/page-bg.jpg">
+                    <div class="slider-shape position-absolute z-index1">
+                        <span class="slider-bg-round d-block"></span>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                            <div class="page-title b-l pt-100 text-center position-relative z-index1">
+                                <h2 class="text-capitalize font600 mb-10">Checkout</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb justify-content-center bg-transparent">
+                                    <li class="breadcrumb-item"><a class="primary-color" href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active text-capitalize" aria-current="page">Checkout</li>
+                                    </ol>
+                                </nav>
+                            </div><!-- /page title -->
+                        </div><!-- /col -->
+                    </div>
+                </div><!-- /single-slider -->
+            </div>
+            <!-- slider-area-end  -->
+
+            <!-- ====== coupon-area-start=============================================== --> 
+            {{!-- <div class="coupon-area mt-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6  col-lg-6  col-md-6  col-sm-12 col-12">
+                            <div class="coupon-accordion">
+                                <!-- accordion start -->
+                                <h6 class="pt-15 pl-40 pb-15 mb-25">Returning customer? <span id="login" class="primary-color transition-3">Click here to login</span></h6>
+                                <div id="checkout-login" class="coupon-content border-gray pt-30 pb-35 pl-30 pr-30 mb-25">
+                                    <div class="coupon-info">
+                                        <p class="coupon-text mb-15">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est
+                                            sit amet ipsum luctus.</p>
+                                        <form action="#">
+                                            <p class="log-mail mb-0">
+                                                <label>Username or email <span class="required"><span class="theme-color">*</span></span></label>
+                                                <input type="text" class="form-control primary-bg2 border-gray">
+                                            </p>
+                                            <p class="log-pass mb-0">
+                                                <label>Password <span class="required"><span class="theme-color">*</span></span></label>
+                                                <input type="text" class="form-control primary-bg2 border-gray">
+                                            </p>
+                                            <div class="log-btn mb-0">
+                                                <a href="login.html" class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-15 pb-15 mr-3 pl-40 pr-40">Login</a>
+                                                <div class="save-info d-inline-block mb-30 mt-2">
+                                                    <input class="p-0 pr-1" type="checkbox" aria-label="Checkbox for following text input">
+                                                    <p class="mb-0 d-inline-block">Remember me</p>
+                                                </div>
+                                            </div>
+                                            <p class="lost-password mb-0">
+                                                <a href="#" class="primary-color">Lost your password?</a>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- accordion start -->
+                            </div>
+                        </div><!-- /col -->
+                        <div class="col-xl-6  col-lg-6  col-md-6  col-sm-12 col-12">
+                            <div class="coupon-accordion">
+                                <!-- accordion start -->
+                                <h6 class="pt-15 pl-40 pb-15 mb-25">Have a coupon? <span  id="couponshow" class="primary-color">Click here to enter your code</span></h6>
+                                <div id="checkout-coupon" class="checkout-content">
+                                    <div class="coupon-info">
+                                        <form action="#">
+                                            <p class="checkout-coupon">
+                                                <input type="text" class="form-control primary-bg2 border-gray" placeholder="Coupon Code">
+                                                <a href="#" class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-15 pb-15 pl-25 pr-25">Apply coupon</a>
+                                            </p>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- accordion start -->
+                            </div>
+                        </div><!-- /col -->
+                    </div><!-- /row -->
+                </div><!-- /container -->
+            </div> --}}
+            <!-- cart-area-end -->
+
+            <!-- ====== checkout-area-start ============================================= -->
+            <div class="checkout-area mb-60 mt-20">
+                <div  class="container">
+                    <form id="checkoutForm" method="post" action="/checkout" class="row">
+                        <div class="col-xl-6  col-lg-6  col-md-12  col-sm-12 col-12">
+                            <div class="checkbox-form">
+                                <h4 class="pb-10 mb-20 border-b-light-gray3">Billing Details</h4>
+                                <div class="row">
+                                    {{!-- <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                                        <div class="country-select mb-30">
+                                            <label>Country <span class="theme-color">*</span></label>
+                                            <select class="w-100 primary-bg2 mb-20">
+                                                <option value="volvo">bangladesh</option>
+                                                <option value="saab">Algeria</option>
+                                                <option value="mercedes">Afghanistan</option>
+                                                <option value="audi">Ghana</option>
+                                                <option value="audi2">Albania</option>
+                                                <option value="audi3">Bahrain</option>
+                                                <option value="audi4">Colombia</option>
+                                                <option value="audi5">Dominican Republic</option>
+                                            </select>
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>First Name <span class="theme-color">*</span></label>
+                                            <input name="firstName" type="text" placeholder="" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Last Name <span class="theme-color">*</span></label>
+                                            <input name="lastName" type="text" placeholder="" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    {{!-- <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Company Name</label>
+                                            <input type="text" placeholder="" class="form-control primary-bg2 border-gray">
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Address <span class="theme-color">*</span></label>
+                                            <input name="address" type="text" placeholder="Street address" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Town / City <span class="theme-color">*</span></label>
+                                            <input name="town" type="text" placeholder="Town / City" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>State <span class="theme-color">*</span></label>
+                                            <input name="state" type="text" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Pincode <span class="theme-color">*</span></label>
+                                            <input name="pincode" type="text" placeholder="Postcode / Zip" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Email Address <span class="theme-color">*</span></label>
+                                            <input name="email" type="email" placeholder="" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6  col-lg-6  col-md-6  col-sm-6 col-12">
+                                        <div class="checkout-form-list mb-20">
+                                            <label>Phone <span class="theme-color">*</span></label>
+                                            <input name="phone" type="text" placeholder="Phone" class="form-control primary-bg2 border-gray" required>
+                                        </div>
+                                    </div>
+                                </div><!-- /row -->
+                               
+                            </div>
+                        </div><!-- /col -->
+                        <div class="col-xl-6  col-lg-6  col-md-12  col-sm-12 col-12">
+                            <div class="your-order mb-30 pt-30 pr-40 pb-45 pl-40 mt-15">
+                                <h4 class="pb-10 mb-20 border-b-light-gray3">Your order</h4>
+                                <div class="your-order-table table-responsive">
+                                    <table class="width100">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">Product</th>
+                                                <th class="product-total">Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          {{#each products}}
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    {{this.name}} <strong class="product-quantity"> x {{this.quantity}}</strong>
+                                                </td>
+                                                <td class="product-total">
+                                                    <span class="amount">₹ {{this.subTotal}}</span>
+                                                </td>
+                                            </tr>
+                                          {{/each}}
+                                        </tbody>
+                                        <tfoot>
+                                            <tr class="order-total">
+                                                <th>Shipping</th>
+                                                <td>
+                                                    <span class="amount text-danger">Shipping charge of ₹ {{shippingCostKerala}} will be added for the selected products inside Kerala and ₹ {{shippingCostOutside}} for outside Kerala</span>
+                                                </td>
+                                            </tr>
+                                            <tr class="cart-subtotal">
+                                                <th> Total</th>
+                                                <td><span class="amount">₹ {{total}}</span></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <div class="payment-method mt-40">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="card border-gray rounded-0 mb-10 white-bg">
+                                            <div class="card-header bg-white border-b-light-gray" id="headingOne">
+                                                <h6 class="mb-0">
+                                                    <button class="btn-link border-0 text-uppercase" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Mode of Operation
+                                                    </button>
+                                                </h6>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body">
+                                                    <span class="mb-0">Our team will contact you regarding the quote and the required products will be sent to you after recieving the payment.</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-button-payment mt-20">
+                                        <button type="submit" class="web-btn d-block theme-bg border-theme02 white text-center text-uppercase over-hidden position-relative pt-18 pb-18 mt-2 mb-10">Place order</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /col -->
+                    </form><!-- /row -->
+                </div><!-- /container -->
+            </div>
+            <!-- checkout-area-end -->
+
+        </main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const checkoutForm = document.getElementById('checkoutForm');
+    checkoutForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Create FormData instance and append form data
+        let formData = new FormData(checkoutForm);
+        console.log(formData)
+        $.ajax({
+            url: '/checkout',
+            method: 'post',
+            data: $('#checkoutForm').serialize(),
+            success: function(response) {
+                console.log(response);
+                // Assuming the response contains a property `payment_links` with a `web` sub-property
+                window.location.href = response.payment_links.web;
+            },
+            error: function(err) {
+                console.error("AJAX Error:", err);
+                // Handle errors here
+            }
+        });
+    });
+});
+</script>

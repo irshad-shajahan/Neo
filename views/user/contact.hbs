@@ -1,0 +1,162 @@
+  <main style="margin-top: 5rem;">
+
+            <!-- ======slider-area-start=========================================== -->
+            <div class="slider-area over-hidden">
+                <div class="page-height d-flex align-items-center justify-content-center position-relative" data-background="images/slider/page-bg.jpg">
+                    <div class="slider-shape position-absolute z-index1">
+                        <span class="slider-bg-round d-block"></span>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-xl-12  col-lg-12  col-md-12  col-sm-12 col-12">
+                            <div class="page-title b-l pt-100 text-center position-relative z-index1">
+                                <h2 class="text-capitalize font600 mb-10">Contact Us</h2>
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb justify-content-center bg-transparent">
+                                    <li class="breadcrumb-item"><a class="primary-color" href="/">Home</a></li>
+                                    <li class="breadcrumb-item active text-capitalize" aria-current="page">Contact Us</li>
+                                    </ol>
+                                </nav>
+                            </div><!-- /page title -->
+                        </div><!-- /col -->
+                    </div>
+                </div><!-- /single-slider -->
+            </div>
+            <!-- slider-area-end  -->
+           
+            <!-- ====== contact-form-area-start=============================================== --> 
+            <div class="contact-form-area over-hidden pt-30">
+                <div class="container">
+                    <div class="row">                     
+                        <div class="col-xl-4  col-lg-4  col-md-12  col-sm-12 col-12">
+                            <div class="contact-form-left mt-55 pr-40">
+                                <div class="section-title text-left pb-20">
+                                    <h4 class="dark-black-color pb-3 d-block">Contact us</h4>
+                                        <p>For any feedbacks or improvements on our online store, please fill in this contact form. We will take a look and reply you within 24 hours. We always need your feedbacks to continuously leverage your shopping experience.</p>
+                                </div><!-- /section-title -->
+                                <ul class="social-link mt-20">
+                                    <li class="primary-color d-dlock d-sm-inline-block pr-15">
+                                        <span>Social Share:</span>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="active primary-color text-center pr-0 d-inline-block transition-3" href="#"><i class="fab fa-facebook-f"></i></a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="primary-color text-center pr-0 d-inline-block transition-3" href="#"><i class="fab fa-twitter"></i></a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="primary-color text-center pr-0 d-inline-block transition-3" href="#"><i class="fab fa-instagram"></i></a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="primary-color text-center pr-0 d-inline-block transition-3" href="#"><i class="fab fa-behance"></i></a>
+                                    </li>
+                                    <li class="d-inline-block">
+                                        <a class="primary-color text-center pr-0 d-inline-block transition-3" href="#"><i class="fab fa-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div><!-- /col -->
+                        <div class="col-xl-8  col-lg-8  col-md-12 col-sm-12 col-12">
+                            <div class="contact-form-right mt-55">
+                                <form action="/contact-form" method="post" class="text-center">
+                                    <h4 class=" text-left dark-black-color pb-15 d-block">Write to us</h4>
+                                        <div class="row">
+                                            <div class="col-xl-6  col-lg-6  col-md-6  col-sm-12 col-12">
+                                                <div class="name mb-20">
+                                                    <input type="text" class="form-control primary-bg2" name="name" id="name" placeholder="Name*" >
+                                                </div>
+                                            </div><!-- /col -->
+                                            <div class="col-xl-6  col-lg-6  col-md-6  col-sm-12 col-12">
+                                                <div class="email mb-20">
+                                                    <input type="email" class="form-control primary-bg2" name="email" id="c-email" placeholder="Email*" >
+                                                </div>
+                                            </div><!-- /col -->
+                                        </div><!-- /row -->
+                                          <div class="phone mb-20">
+                                        <input type="text" class="form-control primary-bg2" name="phone" id="name" placeholder="Phone*" >
+                                          </div>
+                                    <div class="subject mb-20">
+                                         <select class="w-100 primary-bg2 mb-20" name="subject" required>
+                                                <option selected value="Products Related Query">Products Related Query</option>
+                                                <option value="Franchise Related Query">Franchise Related Query</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                    </div>
+                                    <div class="comment mb-25">
+                                        <textarea name="message" class="form-control primary-bg2" id="message" placeholder="Comments"></textarea>
+                                    </div>
+                                    <button type="submit" class="web-btn d-inline-block theme-bg white text-uppercase over-hidden position-relative border-theme02 ptb-10 pl-40 pr-40">
+                                        Submit message<span class="pl-2"><i class="fas fa-long-arrow-alt-right"></i></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div><!-- /col -->
+                    </div><!-- /row -->
+                </div><!-- /container -->
+            </div>
+            <!-- contact-form-area-end -->
+            <div class="contact-branches">
+                {{#each branches}}
+                <div class="branch">
+                    <h5>{{this.name}}</h5>
+                    <p>{{this.address}}</p>
+                    <a href="tel:{{this.phone}}" class="btn btn-success">Call Now</a>
+                    <a href="{{this.link}}" target="_blank" rel="noreferrer" class="direction btn btn-primary">View On Map</a>
+                </div>
+                {{/each}}
+            </div>
+            <!-- ====== contact-information-area-start=============================================== --> 
+            <div class="contact-information-area position-relative mt--35">
+                <div class="container">
+                    <div class="row theme-bg no-gutters contact-information-height align-items-center pt-75 pb-50 p-2">
+                        <div class="col-xl-4  col-lg-4  col-md-6  col-sm-12 col-12">
+                            <ul class="contact-address text-center text-md-left transition-3 d-md-flex justify-content-center align-items-center width100 mb-30">
+                                <li>
+                                    <span class="contact-icon theme-color transition-3 white-bg text-center d-inline-block  mr-20"><i class="fas fa-map-marker-alt"></i></span>
+                                </li>
+                                <li>
+                                    <span class="white font600 pb-6">Our Address</span>
+                                    <p class="mb-1 white"><strong>HO : <br></strong>  NEO PRODUCTS, II/104 A1, NEO MOUNT, <br> VATTUKUNNU, MULANTHURUTHY P O, <br>ERNAKULAM KERALA-682314</p>
+                                    <p class="m-0 white">Open: 9:30 am - 9:00 pm</p>
+                                </li>
+                            </ul>  
+                        </div><!-- /col -->
+                        <div class="col-xl-4  col-lg-4  col-md-6  col-sm-12 col-12">
+                            <ul class="contact-address text-center text-md-left transition-3 d-md-flex justify-content-center align-items-center  width100  mb-30">
+                                <li>
+                                    <span class="contact-icon theme-color transition-3 white-bg text-center d-inline-block mr-20"><i class="fas fa-phone"></i></span>
+                                </li>
+                                <li>
+                                    <span class="white d-block font600 pb-6">Phone Number</span>
+                                    <a href="tel:+918606427383" class="m-0 white"> (+91) 8606427383 </a><br>
+                                    <a href="tel:+917306218107" class="mb-1 white">(+91) 7306218107</a><br>
+                                    <a href="tel:+917593871600" class="m-0 white"> (+91) 7593871600 </a><br>         
+                                    <a href="tel:+916238123643" class="m-0 white"> (+91) 6238123643 </a>
+                                </li>
+                            </ul>
+                        </div><!-- /col -->
+                        <div class="col-xl-4  col-lg-4  col-md-6  col-sm-12 col-12">
+                            <ul class="contact-address text-center text-md-left transition-3 d-md-flex justify-content-center width100 mb-30">
+                                <li>
+                                    <span class="contact-icon theme-color white-bg transition-3 text-center d-inline-block mr-20"><i class="fas fa-envelope"></i></span>
+                                </li>
+                                <li>
+                                    <span class="white font600 pb-6">Email Support</span>
+                                    <a href="mailto:neoproducts1@gmail.com" class="mb-1 white">neoproducts1@gmail.com</a>
+                                    {{!-- <p class="m-0 white">info@basicme.com</p> --}}
+                                </li>
+                            </ul>
+                        </div><!-- /col -->
+                    </div><!-- /row -->
+                </div><!-- /container -->
+            </div>
+            <!-- contact-information-area-end -->
+
+            <!-- ====== contact-map-area-start=============================================== --> 
+            <div class="contact-map w-100 mb--6">
+                <div class="container-fluid px-0">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3930.273261457869!2d76.37770377588117!3d9.91118414928799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b087414b8127403%3A0x28fef17253587e33!2sNEO%20PRODUCTS!5e0!3m2!1sen!2sin!4v1716535167917!5m2!1sen!2sin" ></iframe>"></iframe>
+                </div>
+            </div>
+            <!-- contact-map-area-end  -->
+
+        </main>

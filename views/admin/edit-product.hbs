@@ -1,0 +1,89 @@
+<div class="page">
+  <div class="container-fluid">
+    <form
+      method="post"
+      action="/admin/edit-product/{{product._id}}"
+      enctype="multipart/form-data"
+      class="ml-4 w-[50%] border-1 bg-gray-500/30 flex flex-col gap-3 p-3 rounded-xl items-start"
+    >
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        value="{{product.name}}"
+        class="p-2 rounded w-full"
+        placeholder="Product Name"
+      />
+      <label for="shortDesc">Short Description</label>
+      <input
+        type="text"
+        name="shortDesc"
+        value="{{product.shortDesc}}"
+        class="p-2 rounded w-full"
+        placeholder="Product Name"
+        required
+      />
+      <p>Product Category</p>
+      <select
+        name="category"
+        class="form-control show-tick ms select2"
+        data-placeholder="Select"
+      >
+        <option selected>{{product.category}}</option>
+        {{#each categories}}
+          <option>{{this.category}}</option>
+        {{/each}}
+      </select>
+      <p>Product Brand</p>
+      <select
+        name="brand"
+        class="form-control show-tick ms select2"
+        data-placeholder="Select"
+      >
+        <option selected>{{product.brand}}</option>
+        {{#each brands}}
+          <option>{{this.brand}}</option>
+        {{/each}}
+      </select>
+      <label for="description">Description</label>
+      <textarea
+        name="description"
+        class="p-2 rounded w-full"
+        placeholder="Product Description"
+        id=""
+      >{{product.description}}</textarea>
+      <label for="price">Price</label>
+      <input
+        type="number"
+        name="price"
+        class="p-2 rounded w-full"
+        placeholder="Product Price"
+        value={{product.price}}
+      />
+      <label for="price">Weight</label>
+      <input
+        type="number"
+        name="weight"
+        class="p-2 rounded w-full"
+        placeholder="Product Weight"
+        value={{product.weight}}
+      />
+      <label for="stock">Stock</label>
+      <input
+        type="number"
+        name="stock"
+        class="p-2 rounded w-full"
+        placeholder="Product Stock"
+        value={{product.stock}}
+      />
+      <label>current Image</label>
+      <img class="w-40" src="/uploads/{{product.images}}" alt="" />
+      <label for="product-image">Choose file</label>
+      <input type="file" name="image" />
+      <button
+        type="submit"
+        class="bg-green-500 rounded-xl p-2 font-semibold text-white"
+      >Save</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,226 @@
+<main class="mt-100">
+
+  <!-- ======slider-area-start=========================================== -->
+  <div class="slider-area over-hidden">
+    <div
+      class="page-height d-flex align-items-center justify-content-center position-relative"
+      data-background="images/slider/page-bg.jpg"
+    >
+      <div class="slider-shape position-absolute z-index1">
+        <span class="slider-bg-round d-block"></span>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div
+            class="page-title b-l pt-100 text-center position-relative z-index1"
+          >
+            <h2 class="text-capitalize font600 mb-10">Cart</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center bg-transparent">
+                <li class="breadcrumb-item"><a
+                    class="primary-color"
+                    href="index.html"
+                  >Home</a></li>
+                <li
+                  class="breadcrumb-item active text-capitalize"
+                  aria-current="page"
+                >Cart</li>
+              </ol>
+            </nav>
+          </div><!-- /page title -->
+        </div><!-- /col -->
+      </div>
+    </div><!-- /single-slider -->
+  </div>
+  <!-- slider-area-end  -->
+
+  <!-- ====== cart-area-start=============================================== -->
+  <div class="cart-area mt-100">
+    <div class="container border-b-light-gray pb-100">
+      <div class="cart-table text-center table-responsive-sm">
+        <span class="stockError" style="color: red;"></span>
+        <table class="table table-bordered" id="cartDiv">
+          <thead>
+            <tr>
+              <th scope="col">Price images</th>
+              <th scope="col">Product name </th>
+              <th scope="col">Unit price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each cartProducts}}
+              <tr>
+                <td>
+                  <a href="#" class="cart-img d-block">
+                   {{#each this.images}}
+                                {{#if @first}}
+                                  <img
+                                    src="/uploads/{{this}}"
+                                    alt=""
+                                  />
+                                {{/if}}
+                              {{/each}}
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="p-name primary-color">
+                    {{this.name}}
+                  </a>
+                </td>
+                <td>
+                  <div class="cart-price">₹ {{this.price}}</div></td>
+                <td>
+                <div class="quantity-field position-relative d-inline-block">
+  <input
+    type="text"
+    name="select1"
+    value="{{this.quantity}}"
+    class="quantity-input-arrow quantity-input border-light-gray2 primary-color text-center"
+    data-item-id="{{this._id}}"  onchange="updateQuantity(this)"  />
+</div>
+                </td>
+                <td>
+                  <div id="#{{this._id}}" class="cart-price">₹ {{this.subTotal}}</div>
+                </td>
+                <td>
+                  <button
+                    onclick="removeFromCart('{{this._id}}')"
+                    type="button"
+                    class="btn btn-danger"
+                    style="color: white;"
+                  ><span class="icon-clear"></span></button>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <div class="coupon-and-update-area pt-20">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="coupon-code-area pt-15">
+              <form action="#">
+                <input
+                  type="text"
+                  placeholder="Coupon code"
+                  class="pl-15 mr-2 pt-0 mb-15 d-inline-block width50"
+                />
+                <a
+                  href="#"
+                  class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-20 pb-20 pl-35 pr-35"
+                >Apply coupon</a>
+              </form>
+            </div>
+          </div><!-- /col -->
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            {{!-- <div class="update-area text-lg-right">
+              <a
+                href="#"
+                class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-20 pb-20 pl-40 pr-40 mt-15 mr-0 mr-md-2"
+              >CLEAR CART</a>
+              <a
+                href="#"
+                class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-20 pb-20 pl-40 pr-40 mt-15"
+              >UPDATE CART</a>
+            </div> --}}
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div>
+      <div class="row">
+        <div
+          class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 offset-xl-6 offset-lg-6"
+        >
+          <div class="total-price-area mt-80">
+            <h2 class="font600">Cart totals</h2>
+            <ul class="pt-15 pb-25">
+              <li
+                class="d-flex justify-content-between align-items-center border-gray mb-1 pl-25 pr-25 pt-15 pb-15"
+              >
+                <span>Subtotal</span><span class="subTotal">₹ {{Total}}</span>
+              </li>
+              <li
+                class="d-flex justify-content-between align-items-center border-gray pl-25 pr-25 pt-15 pb-15"
+              >
+                <span>Total </span><span class="total">₹ {{Total}}</span>
+              </li>
+            </ul>
+            <a
+              href="/checkout"
+              class="web-btn d-inline-block theme-bg border-theme02 white text-uppercase over-hidden position-relative pt-20 pb-20 pl-45 pr-45 mt-15"
+            >Proceed to checkout</a>
+          </div>
+        </div><!-- /col -->
+      </div>
+    </div><!-- /container -->
+  </div>
+  <!-- cart-area-end -->
+
+</main>
+<script>
+
+function removeFromCart(proId) {
+  $.ajax({
+    url: '/remove-from-cart/' + proId,
+    method: 'get',
+    success: (response) => {
+      if (response.status) {
+        Swal.fire({
+          title: 'Removed',
+          text: 'Item removed from cart',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          window.location.reload();
+        });
+      }
+    },
+    error: (err) => {
+      Swal.fire({
+        title: 'Error',
+        text: 'Failed to remove item from cart',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
+    }
+  });
+}
+async function updateQuantity(quantityInput) {
+  const itemId = quantityInput.dataset.itemId; 
+  const newQuantity = parseInt(quantityInput.value); // Parse new quantity
+
+  try {
+    const response = await fetch('/change-quantity', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ itemId, newQuantity })
+    });
+
+    const data = await response.json();
+    if(!data.status){
+      location.reload()
+      const stockError =  document.querySelector('.stockError')
+       subTotal.textContent = 'Selected quantity not available'
+          }
+
+    if (data.remove) {
+      location.reload()
+    } else {
+      // Handle errors (display error messages, etc.)
+      const subTotal = document.querySelector('.subTotal');
+      const totalElement = document.querySelector('.total');
+      const subTotalElement = document.getElementById(`#${itemId}`);
+      subTotalElement.textContent = data.updatedPrice
+      subTotal.textContent = `₹ ${data.Total}`;
+      totalElement.textContent = `₹ ${data.Total}`;
+    }
+  } catch (error) {
+    console.error('Error updating quantity:', error.message);
+    // Handle errors (display error messages, etc.)
+  }
+
+}
+
+</script>

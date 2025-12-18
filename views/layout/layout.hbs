@@ -1,0 +1,90 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  {{#if admin}}
+  <meta name="author" content="Webpixels">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Neo Admin</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="/admin/vendor/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="/admin/vendor/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/admin/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="/admin/vendor/charts-c3/plugin.css" />
+  <link rel="stylesheet" href="/admin/vendor/jvectormap/jquery-jvectormap-2.0.3.css" />
+  <link rel="stylesheet" href="/admin/css/main.css" type="text/css">
+    <script
+  src="https://code.jquery.com/jquery-3.6.1.js"
+  integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+  
+  crossorigin="anonymous"></script>
+  {{else login}}
+  {{!-- {{#if login}} --}}
+
+  {{else}}
+  <!-- Place favicon.ico in the root directory -->
+  <link rel="shortcut icon" type="image/x-icon" href="/neo/logo.png" />
+  <!-- All css here -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/css/all.min.css" />
+  <link rel="stylesheet" href="/css/animate.css" />
+  <link rel="stylesheet" href="/css/meanmenu.css" />
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" />
+  <link rel="stylesheet" href="/css/slick.css" />
+  <link rel="stylesheet" href="/css/nice-select.css" />
+  <link rel="stylesheet" href="/css/icomoon.css" />
+  <link rel="stylesheet" href="/css/flaticon.css" />
+  <link rel="stylesheet" href="/css/default.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Neo Products</title>
+  {{/if}}
+
+<!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-965806880"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-965806880'); </script>
+
+  <!-- Event snippet for Purchase CA conversion page --> <script> gtag('event', 'conversion', { 'send_to': 'AW-965806880/wSe2CIzs9MkZEKCWxMwD', 'value': 1.0, 'currency': 'INR', 'transaction_id': '' }); </script>
+
+
+  <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '866583801993396');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=866583801993396&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+
+<body>
+  {{#if admin}}
+  {{>admin-sidebar}}
+  {{else login}}
+
+  {{else}}
+  {{>user-header}}
+  {{/if}}
+  {{{body}}}
+  {{#if admin}}
+  {{>admin-footer}}
+  {{else login}}
+  
+  {{else}}
+  {{>user-footer}}
+  {{/if}}
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<main>
+
+  <!-- ======slider-area-start=========================================== -->
+  <div class="slider-area over-hidden">
+    <div
+      class="page-height d-flex align-items-center justify-content-center position-relative"
+      data-background="images/slider/page-bg.jpg"
+    >
+      <div class="slider-shape position-absolute z-index1">
+        <span class="slider-bg-round d-block"></span>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div
+            class="page-title b-l pt-100 text-center position-relative z-index1"
+          >
+            <h2 class="text-capitalize font600 mb-10">Blog</h2>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb justify-content-center bg-transparent">
+                <li class="breadcrumb-item"><a
+                    class="primary-color"
+                    href="#"
+                  >Home</a></li>
+                <li
+                  class="breadcrumb-item active text-capitalize"
+                  aria-current="page"
+                >Blogs</li>
+              </ol>
+            </nav>
+          </div><!-- /page title -->
+        </div><!-- /col -->
+      </div>
+    </div><!-- /single-slider -->
+  </div>
+  <!-- slider-area-end  -->
+
+  <!-- ====== right-sidebar-area-start================================ -->
+  <div class="blog-siderbar-area pt-115">
+    <div class="right-sidebar-area">
+      <div class="mod-container">
+        <div class="row justify-content-center">
+          <div class="col-xl-10 col-lg-10 col-md-12 col-sm- col-">
+            <div class="blog-rs-post single-blog mt-2 pr-40">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              {{{firstBlog.content}}}
+                </div>
+                {{#each blogs}}
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                  {{{this.content}}}
+                </div><!-- /col -->
+                {{/each}}
+              </div><!-- /row -->
+            </div><!-- blog-rs-left -->
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </div>
+  </div><!-- /blog-sidebar-area -->
+  <!-- right-sidebar-area-end -->
+
+</main>
+
+<style>
+  .mod-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+</style>

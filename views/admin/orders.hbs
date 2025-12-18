@@ -1,0 +1,102 @@
+        <div class="page">
+        <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2 class="!text-4xl"><strong>Orders</strong> </h2>
+                            </div>
+                            <div class="body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover dataTable js-exportable" >
+                                        <thead>
+                                            <tr>
+                                                <th>Customer Name</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Address</th>
+                                                <th>Items</th>
+                                                <th>Total</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                    
+                                        <tbody id="productTable">
+                                            {{#each updatedOrders}}
+                                            <tr>
+                                                <td>{{this.firstName}} {{this.lastNam}}</td>
+                                                <td>{{this.date}}</td>
+                                                <td>{{this.time}}</td>
+                                                <td class="max-w-40 !text-[1rem]">
+                                                    <p>{{this.address}},
+                                                    {{this.town}}, <br>
+                                                    {{this.state}}, <br>
+                                                    {{this.pincode}}, <br>
+                                                    {{this.email}}, <br>
+                                                    {{this.phone}}</p>
+                                                </td>
+                                                <td> <button type="button" class="bg-green-500 hover:bg-green-400 rounded-xl w-40 font-semibold flex justify-center items-center h-10 text-white" data-toggle="modal" data-target="#irshad{{this._id}}">View Items</button></td>
+                                                <td>₹ {{this.total}}/-</td>
+                                                <td><button onclick="sure('{{this._id}}')" class="bg-red-500  hover:bg-red-400 rounded-xl w-20 font-semibold flex justify-center items-center h-10 text-white">Done</button></td>
+                                            </tr>
+                                             
+                                <!-- Modal -->
+                                <div class="modal modal-fluid fade" id="irshad{{this._id}}" tabindex="-1" role="dialog" aria-labelledby="modl_1" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">    
+                                                {{#each this.lineItems}}
+                                                <div class="row justify-content-between line-items">
+                                                    <p>{{this.name}}</p>
+                                                    <img src="/uploads/{{this.images.[0]}}" alt="">
+                                                    <p>₹ {{this.price}} /-</p>
+                                                    <p>{{this.category}}</p>
+                                                    <p>x {{this.quantity}}</p>
+                                                    <p>Total : ₹{{this.subTotal}}</p>
+                                                </div>
+                                                {{/each}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>    
+</div>
+
+<script>
+      function sure(orderId) {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Done'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+             $.ajax({
+          url:'/admin/update-order/'+orderId,
+          method:'put',
+          success:(response)=>{
+            location.reload()
+          }
+        })
+          }
+        })
+       
+      }
+    </script>
